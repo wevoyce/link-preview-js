@@ -25,10 +25,11 @@ const metaTag = (doc: any, type: string, attr: string) => {
 
 const metaTagContent = (doc: any, type: string, attr: string) => doc(`meta[${attr}='${type}']`).attr(`content`);
 
-function getTitle(doc: any) {
+function getTitle(doc: any, url: string) {
   let title = metaTagContent(doc, `og:title`, `property`) || metaTagContent(doc, `og:title`, `name`);
   if (!title) {
-    title = doc(`title`).text();
+    //title = doc(`title`).text();
+    title = url;
   }
   return title;
 }
@@ -234,7 +235,7 @@ function parseTextResponse(
 
   return {
     url,
-    title: getTitle(doc),
+    title: getTitle(doc, url),
     siteName: getSiteName(doc),
     description: getDescription(doc),
     mediaType: getMediaType(doc) || `website`,
