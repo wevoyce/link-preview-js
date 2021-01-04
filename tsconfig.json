@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "build",
+    "rootDir": "./",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
